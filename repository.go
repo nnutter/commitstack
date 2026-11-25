@@ -60,6 +60,21 @@ func (r Repository) Bounds(ctx context.Context, view Snapshot, first, last strin
 	return view.Stacks[start : end+1], nil
 }
 
+// BranchView identifies the current branch and its upstream without loading
+// the stack range or computing patch fingerprints.
+func (r Repository) BranchView(ctx context.Context) (Snapshot, string, error) {
+	view, repo, err := r.checkoutView(ctx)
+	if err != nil {
+		return view, "", err
+	}
+	target, err := r.git(ctx, "rev-parse", "--symbolic-full-name", "@{upstream}")
+	if err != nil {
+		return view, "", fmt.Errorf("branch %s requires a configured Git upstream: %w", view.Branch, err)
+	}
+	view.Target = target
+	return view, repo, nil
+}
+
 // CheckoutView returns branch and repo info without requiring upstream or a full stack range.
 func (r Repository) CheckoutView(ctx context.Context) (Snapshot, string, error) {
 	return r.checkoutView(ctx)
@@ -214,19 +229,6 @@ func (r Repository) WarmCache(ctx context.Context, ref string) error {
 	return fmt.Errorf("commit %s is not in the current feature range", sha)
 }
 
-func (r Repository) branchView(ctx context.Context) (Snapshot, string, error) {
-	view, repo, err := r.checkoutView(ctx)
-	if err != nil {
-		return view, "", err
-	}
-	target, err := r.git(ctx, "rev-parse", "--symbolic-full-name", "@{upstream}")
-	if err != nil {
-		return view, "", fmt.Errorf("branch %s requires a configured Git upstream: %w", view.Branch, err)
-	}
-	view.Target = target
-	return view, repo, nil
-}
-
 func (r Repository) checkoutView(ctx context.Context) (Snapshot, string, error) {
 	var view Snapshot
 	repo, err := r.git(ctx, "rev-parse", "--show-toplevel")
@@ -321,7 +323,7 @@ func (r Repository) patchHash(ctx context.Context, base, tip string) (string, er
 }
 
 func (r Repository) stackView(ctx context.Context) (Snapshot, string, error) {
-	view, repo, err := r.branchView(ctx)
+	view, repo, err := r.BranchView(ctx)
 	if err != nil {
 		return view, repo, err
 	}

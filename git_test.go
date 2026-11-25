@@ -63,7 +63,7 @@ func TestBranchViewAcceptsNonlinearHistory(t *testing.T) {
 	gitTest(t, r.Dir, "switch", "feature")
 	gitTest(t, r.Dir, "merge", "--no-ff", "-m", "Merge side", "side")
 
-	view, repo, err := r.branchView(t.Context())
+	view, repo, err := r.BranchView(t.Context())
 	require.NoError(t, err)
 	require.Equal(t, "feature", view.Branch)
 	require.Equal(t, "refs/heads/main", view.Target)
