@@ -3,11 +3,11 @@ package commitstack
 import (
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/nnutter/gittest"
 	"github.com/stretchr/testify/require"
 )
 
@@ -19,8 +19,7 @@ func benchmarkRepository(b *testing.B, commits int, fixups bool) Repository {
 	require.NoError(b, err)
 	run := func(input string, args ...string) {
 		b.Helper()
-		cmd := exec.CommandContext(b.Context(), "git", args...)
-		cmd.Dir = dir
+		cmd := gittest.Command(b, dir, args...)
 		cmd.Stdin = strings.NewReader(input)
 		out, err := cmd.CombinedOutput()
 		require.NoError(b, err, "git %v: %s", args, out)
@@ -45,7 +44,7 @@ func benchmarkRepository(b *testing.B, commits int, fixups bool) Repository {
 	run(stream.String(), "fast-import", "--quiet")
 	run("", "symbolic-ref", "HEAD", "refs/heads/feature")
 	run("", "branch", "--set-upstream-to=main")
-	return Repository{Dir: dir}
+	return Repository{Dir: dir, Environment: gittest.WithEnviron()}
 }
 
 func benchmarkCacheModes(b *testing.B, r Repository, operation func() error) {

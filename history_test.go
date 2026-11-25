@@ -2,23 +2,25 @@ package commitstack
 
 import (
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/nnutter/gittest"
 	"github.com/stretchr/testify/require"
 )
 
 // These layouts exercise filesystem discovery and packed-object access rather
 // than merely asserting that the dependency advertises worktree support.
 func TestSnapshotRepositoryLayouts(t *testing.T) {
+	t.Parallel()
 	for _, layout := range []string{"checkout", "linked", "relative-linked", "sha256"} {
 		t.Run(layout, func(t *testing.T) {
+			var initArgs []string
 			if layout == "sha256" {
-				t.Setenv("GIT_DEFAULT_HASH", "sha256")
+				initArgs = append(initArgs, "--object-format=sha256")
 			}
-			r := testRepo(t)
+			r := testRepo(t, initArgs...)
 			base := gitTest(t, r.Dir, "rev-parse", "HEAD")
 			id := "I" + strings.Repeat("c", 40)
 			gitTest(t, r.Dir, "commit", "--allow-empty", "-m", "First line\nsecond line\n\nChange-Id: "+id)
@@ -30,8 +32,7 @@ func TestSnapshotRepositoryLayouts(t *testing.T) {
 			if strings.Contains(layout, "linked") {
 				args := []string{"worktree", "add", "-b", "linked"}
 				if layout == "relative-linked" {
-					cmd := exec.CommandContext(t.Context(), "git", "worktree", "add", "-h")
-					cmd.Dir = r.Dir
+					cmd := gittest.Command(t, r.Dir, "worktree", "add", "-h")
 					out, _ := cmd.CombinedOutput()
 					if !strings.Contains(string(out), "relative-paths") {
 						t.Skip("Git does not support relative worktree links")

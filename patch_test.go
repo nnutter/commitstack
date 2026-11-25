@@ -46,7 +46,9 @@ func TestSnapshotPatchIdentity(t *testing.T) {
 			}
 			subdir := filepath.Join(r.Dir, "subdir")
 			require.NoError(t, os.Mkdir(subdir, 0o700))
-			rewritten, err := (Repository{Dir: subdir}).Snapshot(t.Context())
+			nested := r
+			nested.Dir = subdir
+			rewritten, err := nested.Snapshot(t.Context())
 			require.NoError(t, err)
 			require.NotEqual(t, original.Stacks[0].Key, rewritten.Stacks[0].Key)
 			require.Equal(t, original.Stacks[0].PatchHash, rewritten.Stacks[0].PatchHash)

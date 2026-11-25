@@ -3,35 +3,54 @@ package commitstack
 import (
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/nnutter/gittest"
 	"github.com/stretchr/testify/require"
 )
 
+// Repository resolves Git through the process PATH. Fix that once, before any
+// tests start; fixture commands and child environments are isolated separately.
+func TestMain(m *testing.M) {
+	path := environmentValue(gittest.WithEnviron(), "PATH")
+	if path != os.Getenv("PATH") {
+		if err := os.Setenv("PATH", path); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+	}
+	os.Exit(m.Run())
+}
+
 func gitTest(t *testing.T, dir string, args ...string) string {
 	t.Helper()
-	cmd := exec.CommandContext(t.Context(), "git", args...)
-	cmd.Dir = dir
-	cmd.Env = os.Environ()
+	return gitTestEnv(t, dir, "", args...)
+}
+
+func gitTestEnv(t *testing.T, dir, override string, args ...string) string {
+	t.Helper()
+	cmd := gittest.Command(t, dir, args...)
+	if override != "" {
+		cmd.Env = append(cmd.Env, override)
+	}
 	out, err := cmd.CombinedOutput()
 	require.NoError(t, err, "%s", out)
 	return strings.TrimSpace(string(out))
 }
 
-func testRepo(t *testing.T) Repository {
+func testRepo(t *testing.T, initArgs ...string) Repository {
 	t.Helper()
 	dir, err := filepath.EvalSymlinks(t.TempDir())
 	require.NoError(t, err)
-	gitTest(t, dir, "init", "-b", "main")
+	gitTest(t, dir, append([]string{"init", "-b", "main"}, initArgs...)...)
 	gitTest(t, dir, "config", "user.name", "Test")
 	gitTest(t, dir, "config", "user.email", "test@example.com")
 	gitTest(t, dir, "commit", "--allow-empty", "-m", "Base")
 	gitTest(t, dir, "checkout", "-b", "feature")
 	gitTest(t, dir, "branch", "--set-upstream-to=main")
-	return Repository{Dir: dir, Environment: append(os.Environ(), "HOME="+dir, "XDG_DATA_HOME=")}
+	return Repository{Dir: dir, Environment: append(gittest.WithEnviron(), "HOME="+dir, "XDG_DATA_HOME=")}
 }
 
 func TestSnapshot(t *testing.T) {
@@ -60,12 +79,12 @@ func TestSnapshot(t *testing.T) {
 }
 
 func TestSnapshotGroupsNativeFixupsTargetingStackTip(t *testing.T) {
+	t.Parallel()
 	r := testRepo(t)
 	gitTest(t, r.Dir, "commit", "--allow-empty", "-m", "Feature")
 	commits := []string{gitTest(t, r.Dir, "rev-parse", "HEAD")}
-	t.Setenv("GIT_EDITOR", "true")
 	for _, kind := range []string{"", "amend:", "reword:"} {
-		gitTest(t, r.Dir, "commit", "--allow-empty", "--fixup="+kind+commits[len(commits)-1])
+		gitTestEnv(t, r.Dir, "GIT_EDITOR=true", "commit", "--allow-empty", "--fixup="+kind+commits[len(commits)-1])
 		commits = append(commits, gitTest(t, r.Dir, "rev-parse", "HEAD"))
 	}
 	view, err := r.Snapshot(t.Context())

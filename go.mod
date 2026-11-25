@@ -5,6 +5,7 @@ go 1.27.4
 require (
 	charm.land/log/v2 v2.0.1
 	github.com/go-git/go-git/v6 v6.0.0-beta.1
+	github.com/nnutter/gittest v0.0.2
 	github.com/stretchr/testify v1.12.1
 )
 

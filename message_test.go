@@ -11,6 +11,7 @@ import (
 // A message fingerprint must survive rewrites that keep the message and must
 // change when a review of the stack would show a different message.
 func TestStackMessageFingerprint(t *testing.T) {
+	t.Parallel()
 	feature := func(t *testing.T) Repository {
 		t.Helper()
 		r := testRepo(t)
@@ -41,8 +42,7 @@ func TestStackMessageFingerprint(t *testing.T) {
 	t.Run("amend with the target message keeps it", func(t *testing.T) {
 		r := feature(t)
 		before := stackMessageFingerprint(t, r)
-		t.Setenv("GIT_EDITOR", "true")
-		gitTest(t, r.Dir, "commit", "--allow-empty", "--fixup=amend:HEAD")
+		gitTestEnv(t, r.Dir, "GIT_EDITOR=true", "commit", "--allow-empty", "--fixup=amend:HEAD")
 		require.Equal(t, before, stackMessageFingerprint(t, r))
 	})
 	t.Run("body change is a new message", func(t *testing.T) {
@@ -57,8 +57,7 @@ func TestStackMessageFingerprint(t *testing.T) {
 		gitTest(t, r.Dir, "commit", "--allow-empty", "-m", "amend! Feature", "-m", "Improved message")
 		appended := stackMessageFingerprint(t, r)
 		require.NotEqual(t, before, appended)
-		t.Setenv("GIT_SEQUENCE_EDITOR", ":")
-		gitTest(t, r.Dir, "rebase", "-i", "--autosquash", "main")
+		gitTestEnv(t, r.Dir, "GIT_SEQUENCE_EDITOR=:", "rebase", "-i", "--autosquash", "main")
 		require.Equal(t, "Improved message", gitTest(t, r.Dir, "log", "-1", "--format=%s"))
 		require.Equal(t, appended, stackMessageFingerprint(t, r))
 	})
