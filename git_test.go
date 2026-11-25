@@ -53,6 +53,23 @@ func testRepo(t *testing.T, initArgs ...string) Repository {
 	return Repository{Dir: dir, Environment: append(gittest.WithEnviron(), "HOME="+dir, "XDG_DATA_HOME=")}
 }
 
+func TestBranchViewAcceptsNonlinearHistory(t *testing.T) {
+	t.Parallel()
+	r := testRepo(t)
+	gitTest(t, r.Dir, "branch", "side")
+	gitTest(t, r.Dir, "commit", "--allow-empty", "-m", "Feature")
+	gitTest(t, r.Dir, "switch", "side")
+	gitTest(t, r.Dir, "commit", "--allow-empty", "-m", "Side")
+	gitTest(t, r.Dir, "switch", "feature")
+	gitTest(t, r.Dir, "merge", "--no-ff", "-m", "Merge side", "side")
+
+	view, repo, err := r.branchView(t.Context())
+	require.NoError(t, err)
+	require.Equal(t, "feature", view.Branch)
+	require.Equal(t, "refs/heads/main", view.Target)
+	require.Equal(t, r.Dir, repo)
+}
+
 func TestSnapshot(t *testing.T) {
 	t.Parallel()
 	r := testRepo(t)
