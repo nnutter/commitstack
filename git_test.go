@@ -83,7 +83,7 @@ func TestSnapshot(t *testing.T) {
 	require.Equal(t, "refs/heads/main", view.Target)
 	require.Len(t, view.Stacks, 1)
 	require.Equal(t, []string{first, tip}, view.Stacks[0].Commits)
-	require.Equal(t, first+".."+tip, view.Stacks[0].Key)
+	require.Equal(t, first+"-"+tip, view.Stacks[0].Key)
 	require.Equal(t, id, view.Stacks[0].ChangeID)
 	require.Contains(t, view.Path, "/timber-review/state/")
 
@@ -108,7 +108,7 @@ func TestSnapshotGroupsNativeFixupsTargetingStackTip(t *testing.T) {
 	require.NoError(t, err)
 	require.Len(t, view.Stacks, 1)
 	require.Equal(t, commits, view.Stacks[0].Commits)
-	require.Equal(t, commits[0]+".."+commits[len(commits)-1], view.Stacks[0].Key)
+	require.Equal(t, commits[0]+"-"+commits[len(commits)-1], view.Stacks[0].Key)
 }
 
 func TestSnapshotTreatsOrphanFeedbackAsNormalCommit(t *testing.T) {
