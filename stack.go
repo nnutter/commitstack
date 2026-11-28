@@ -7,6 +7,7 @@ import (
 )
 
 // Stack identifies an original commit and its adjacent feedback commits.
+// Key is the full SHA for a single commit or <first>-<last> for multiple commits.
 // ChangeID is optional lineage metadata from the Change-Id trailer.
 // PatchHash and MessageHash identify the reviewable content: the patch and
 // the message that a review would show. An attached fixup! commit carries
@@ -43,7 +44,7 @@ func (s Stack) validate() error {
 	}
 	expected := s.Commits[0]
 	if len(s.Commits) > 1 {
-		expected += ".." + s.Tip
+		expected += stackKeySeparator + s.Tip
 	}
 	if s.Key != expected {
 		return fmt.Errorf("stack key does not match commits")
@@ -99,6 +100,8 @@ type Snapshot struct {
 	Repo   string  `json:"repo"`
 	Path   string  `json:"statePath,omitempty"`
 }
+
+const stackKeySeparator = "-"
 
 var (
 	fullSHA            = regexp.MustCompile(`^(?:[a-f0-9]{40}|[a-f0-9]{64})$`)

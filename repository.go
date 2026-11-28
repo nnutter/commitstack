@@ -153,9 +153,15 @@ func (r Repository) SelectRange(ctx context.Context, view Snapshot, first, last 
 	return view.Stacks[start : end+1], nil
 }
 
-// SelectStack returns the stack that contains selector or matches selector's key.
-// Selector can be a commit reference inside a stack or a "<from>..<to>" range.
+// SelectStack returns the stack matching selector.
+// Selector can be a stack key, a commit reference inside a stack, or an
+// inclusive "<from>..<to>" pair of commit references.
 func (r Repository) SelectStack(ctx context.Context, view Snapshot, selector string) (Stack, error) {
+	if i := slices.IndexFunc(view.Stacks, func(stack Stack) bool {
+		return stack.Key == selector
+	}); i >= 0 {
+		return view.Stacks[i], nil
+	}
 	if first, last, ok := strings.Cut(selector, ".."); ok {
 		start, err := r.Resolve(ctx, first)
 		if err != nil {
@@ -166,7 +172,7 @@ func (r Repository) SelectStack(ctx context.Context, view Snapshot, selector str
 			return Stack{}, err
 		}
 		for _, stack := range view.Stacks {
-			if stack.Key == start+".."+end {
+			if stack.Key == start+stackKeySeparator+end {
 				return stack, nil
 			}
 		}
@@ -476,6 +482,6 @@ func tryAppendFeedback(stacks []Stack, targets map[string][]int, sha, subject st
 	last := &stacks[len(stacks)-1]
 	last.Commits = append(last.Commits, sha)
 	last.Tip = sha
-	last.Key = last.Commits[0] + ".." + sha
+	last.Key = last.Commits[0] + stackKeySeparator + sha
 	return true
 }

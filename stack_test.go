@@ -22,7 +22,7 @@ func TestStackValidation(t *testing.T) {
 	})
 
 	valid := commitstack.Stack{
-		Repo: repo, Base: base, Tip: tip, Commits: []string{first, tip}, Key: first + ".." + tip, Subject: "Feature",
+		Repo: repo, Base: base, Tip: tip, Commits: []string{first, tip}, Key: first + "-" + tip, Subject: "Feature",
 		ChangeID: "I" + objectID("d"), PatchHash: "v2:" + objectID("e"), MessageHash: "v1:" + strings.Repeat("f", 64),
 	}
 	require.NoError(t, valid.Validate())
@@ -85,7 +85,7 @@ func TestStackIdentity(t *testing.T) {
 	withoutChangeID.ChangeID = ""
 	withFeedback := withoutChangeID
 	withFeedback.Tip = objectID("f")
-	withFeedback.Key += ".." + withFeedback.Tip
+	withFeedback.Key += "-" + withFeedback.Tip
 	withFeedback.Commits = []string{original.Tip, withFeedback.Tip}
 	withFeedback.PatchHash = "v2:" + objectID("1")
 

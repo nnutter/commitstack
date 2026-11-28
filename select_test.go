@@ -27,6 +27,7 @@ func TestStackSelection(t *testing.T) {
 			name, selector, wantError string
 		}{
 			{name: "interior commit", selector: "HEAD~2"},
+			{name: "complete stack by key", selector: original + "-" + tip},
 			{name: "complete stack by refs", selector: "HEAD~3..HEAD~1"},
 			{name: "partial stack by refs", selector: "HEAD~3..HEAD~2", wantError: "complete current stack"},
 			{name: "outside feature", selector: "main", wantError: "outside the current stack range"},
