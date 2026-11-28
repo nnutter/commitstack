@@ -281,44 +281,44 @@ signer = "sigstore-oidc:https://github.com/jdx/jactionlint/.github/workflows/rel
 repository_ids = { repository = "1404951382" }
 
 [[tools."packslip:nnutter/constable"]]
-version = "0.10.1"
+version = "0.10.2"
 backend = "packslip:nnutter/constable"
 specifiers = ["latest"]
 unsupported_platforms = ["windows-x64"]
 
 [tools."packslip:nnutter/constable"."platforms.linux-arm64"]
-checksum = "sha256:c2891fd7c60dc425486673faf65e0942a9b65b2359c277eb75811758b031d531"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_arm64.tar.gz"
+checksum = "sha256:ebe687ddfa281a4f9753af134feb57d9152b559de15228e60dede3f9db43c5b2"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.linux-arm64-musl"]
-checksum = "sha256:c2891fd7c60dc425486673faf65e0942a9b65b2359c277eb75811758b031d531"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_arm64.tar.gz"
+checksum = "sha256:ebe687ddfa281a4f9753af134feb57d9152b559de15228e60dede3f9db43c5b2"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.linux-x64"]
-checksum = "sha256:375733dd02b1d7033f2cac3f586c93cf7291b42c5e0f8e4792ff33f2fe525464"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_amd64.tar.gz"
+checksum = "sha256:fe494130ae68dc6e863875a78f90045e1919ba99c771c8ff46dd7508cc629794"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.linux-x64-musl"]
-checksum = "sha256:375733dd02b1d7033f2cac3f586c93cf7291b42c5e0f8e4792ff33f2fe525464"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_amd64.tar.gz"
+checksum = "sha256:fe494130ae68dc6e863875a78f90045e1919ba99c771c8ff46dd7508cc629794"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.macos-arm64"]
-checksum = "sha256:39990012b1c17c7efa537070a497b8f759fb4440f9df40d223e360d776de392a"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_darwin_arm64.tar.gz"
+checksum = "sha256:f9b20ac4e5b2c98433f93d6287b02110688b078c102e92951fa350287f2e7ce2"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_darwin_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.macos-x64"]
-checksum = "sha256:9ea2593ee04b1a43354cad67b1425f1e78157507289fd386e52a97790236ec02"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_darwin_amd64.tar.gz"
+checksum = "sha256:1a9d6f943ab0ea9dd773ada744c4e393342c10d50632e0be03ed9bcfb71eca9b"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_darwin_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
@@ -370,44 +370,44 @@ signer = "sigstore-oidc:https://github.com/nnutter/mdlint/.github/workflows/tag.
 repository_ids = { repository = "1408036718" }
 
 [[tools."packslip:nnutter/timber"]]
-version = "0.26.3"
+version = "0.28.1"
 backend = "packslip:nnutter/timber"
 specifiers = ["latest"]
 unsupported_platforms = ["windows-x64"]
 
 [tools."packslip:nnutter/timber"."platforms.linux-arm64"]
-checksum = "sha256:28f14e4a9b9a411deacfe934b34d2373f6d57736d0d9a4b1113afbc479229dff"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_arm64.tar.gz"
+checksum = "sha256:ad96a771d59476f7602b58419704f33a7f03ad18d6c3fce00fa418dceee9cd67"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.linux-arm64-musl"]
-checksum = "sha256:28f14e4a9b9a411deacfe934b34d2373f6d57736d0d9a4b1113afbc479229dff"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_arm64.tar.gz"
+checksum = "sha256:ad96a771d59476f7602b58419704f33a7f03ad18d6c3fce00fa418dceee9cd67"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.linux-x64"]
-checksum = "sha256:9856c1c076b1a96d2319214bc2d5b2e1f03853b8a6df14486924bfac529e93bf"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_amd64.tar.gz"
+checksum = "sha256:600149231540de75bad24980b9e1f6049cbca8a6b73e2c2601281f4593e97604"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.linux-x64-musl"]
-checksum = "sha256:9856c1c076b1a96d2319214bc2d5b2e1f03853b8a6df14486924bfac529e93bf"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_amd64.tar.gz"
+checksum = "sha256:600149231540de75bad24980b9e1f6049cbca8a6b73e2c2601281f4593e97604"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.macos-arm64"]
-checksum = "sha256:f3ad46d8c838b0f705387501d0ccbe8050b584a56d700ca197bab6a0c72a71a7"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_darwin_arm64.tar.gz"
+checksum = "sha256:b44e68c48c31f6e3217fa007c9c9227680e320aaac18f6dad391d909435b4a0c"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_darwin_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.macos-x64"]
-checksum = "sha256:7b76b094bbb0bd4d6e6d3e0c382d94c1d8cd258220c68de1c83b1cf043a4f83b"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_darwin_amd64.tar.gz"
+checksum = "sha256:ae4481d9dbc3b3c3d2c9ff4c9719ea9320e5c95b910693a0846f5738c9b1667c"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_darwin_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
