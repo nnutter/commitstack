@@ -9,6 +9,8 @@ gofumpt = "latest"
 pkl = "latest"
 staticcheck = "latest"
 tombi = "latest"
+shellcheck = "latest"
+shfmt = "latest"
 yamlfmt = "latest"
 "packslip:nnutter/constable" = { version = "latest", minimum_release_age = "0" }
 "packslip:nnutter/mdlint" = { version = "latest", minimum_release_age = "0" }
@@ -18,6 +20,10 @@ yamlfmt = "latest"
 "go:github.com/kojah/gohawk" = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
 "go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+
+[tasks.upgrade]
+description = "Upgrade and commit mise tools and shared hk config"
+run = "scripts/upgrade-tools"
 
 [tasks.all]
 description = "Run fix, test, and check"
@@ -32,7 +38,8 @@ alias = "cover"
 description = "Run tests and generate coverage report"
 run = "go test -coverprofile=coverage.out -covermode=atomic ./... && go tool cover -func=coverage.out"
 
-[tasks.setup]
+[tasks.install]
+alias = "setup"
 description = "Install hk git hooks"
 run = "hk install --mise"
 
@@ -54,6 +61,10 @@ fi
 [tasks.check]
 description = "Check all files without writing fixes"
 run = "hk check --all"
+
+[tasks.validate]
+description = "Run checks and tests without applying fixes"
+run = [{ task = "check" }, { task = "test" }]
 
 [tasks.on-start]
 description = "Pi mise-hooks: run fix, test, and check before agent starts"

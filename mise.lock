@@ -281,44 +281,44 @@ signer = "sigstore-oidc:https://github.com/jdx/jactionlint/.github/workflows/rel
 repository_ids = { repository = "1404951382" }
 
 [[tools."packslip:nnutter/constable"]]
-version = "0.10.1"
+version = "0.10.2"
 backend = "packslip:nnutter/constable"
 specifiers = ["latest"]
 unsupported_platforms = ["windows-x64"]
 
 [tools."packslip:nnutter/constable"."platforms.linux-arm64"]
-checksum = "sha256:c2891fd7c60dc425486673faf65e0942a9b65b2359c277eb75811758b031d531"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_arm64.tar.gz"
+checksum = "sha256:ebe687ddfa281a4f9753af134feb57d9152b559de15228e60dede3f9db43c5b2"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.linux-arm64-musl"]
-checksum = "sha256:c2891fd7c60dc425486673faf65e0942a9b65b2359c277eb75811758b031d531"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_arm64.tar.gz"
+checksum = "sha256:ebe687ddfa281a4f9753af134feb57d9152b559de15228e60dede3f9db43c5b2"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.linux-x64"]
-checksum = "sha256:375733dd02b1d7033f2cac3f586c93cf7291b42c5e0f8e4792ff33f2fe525464"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_amd64.tar.gz"
+checksum = "sha256:fe494130ae68dc6e863875a78f90045e1919ba99c771c8ff46dd7508cc629794"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.linux-x64-musl"]
-checksum = "sha256:375733dd02b1d7033f2cac3f586c93cf7291b42c5e0f8e4792ff33f2fe525464"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_linux_amd64.tar.gz"
+checksum = "sha256:fe494130ae68dc6e863875a78f90045e1919ba99c771c8ff46dd7508cc629794"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.macos-arm64"]
-checksum = "sha256:39990012b1c17c7efa537070a497b8f759fb4440f9df40d223e360d776de392a"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_darwin_arm64.tar.gz"
+checksum = "sha256:f9b20ac4e5b2c98433f93d6287b02110688b078c102e92951fa350287f2e7ce2"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_darwin_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
 [tools."packslip:nnutter/constable"."platforms.macos-x64"]
-checksum = "sha256:9ea2593ee04b1a43354cad67b1425f1e78157507289fd386e52a97790236ec02"
-url = "https://github.com/nnutter/constable/releases/download/v0.10.1/constable_v0.10.1_darwin_amd64.tar.gz"
+checksum = "sha256:1a9d6f943ab0ea9dd773ada744c4e393342c10d50632e0be03ed9bcfb71eca9b"
+url = "https://github.com/nnutter/constable/releases/download/v0.10.2/constable_v0.10.2_darwin_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/constable/.github/workflows/release.yaml"
 repository_ids = { repository = "1251769953" }
 
@@ -370,44 +370,44 @@ signer = "sigstore-oidc:https://github.com/nnutter/mdlint/.github/workflows/tag.
 repository_ids = { repository = "1408036718" }
 
 [[tools."packslip:nnutter/timber"]]
-version = "0.26.3"
+version = "0.28.1"
 backend = "packslip:nnutter/timber"
 specifiers = ["latest"]
 unsupported_platforms = ["windows-x64"]
 
 [tools."packslip:nnutter/timber"."platforms.linux-arm64"]
-checksum = "sha256:28f14e4a9b9a411deacfe934b34d2373f6d57736d0d9a4b1113afbc479229dff"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_arm64.tar.gz"
+checksum = "sha256:ad96a771d59476f7602b58419704f33a7f03ad18d6c3fce00fa418dceee9cd67"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.linux-arm64-musl"]
-checksum = "sha256:28f14e4a9b9a411deacfe934b34d2373f6d57736d0d9a4b1113afbc479229dff"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_arm64.tar.gz"
+checksum = "sha256:ad96a771d59476f7602b58419704f33a7f03ad18d6c3fce00fa418dceee9cd67"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.linux-x64"]
-checksum = "sha256:9856c1c076b1a96d2319214bc2d5b2e1f03853b8a6df14486924bfac529e93bf"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_amd64.tar.gz"
+checksum = "sha256:600149231540de75bad24980b9e1f6049cbca8a6b73e2c2601281f4593e97604"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.linux-x64-musl"]
-checksum = "sha256:9856c1c076b1a96d2319214bc2d5b2e1f03853b8a6df14486924bfac529e93bf"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_linux_amd64.tar.gz"
+checksum = "sha256:600149231540de75bad24980b9e1f6049cbca8a6b73e2c2601281f4593e97604"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_linux_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.macos-arm64"]
-checksum = "sha256:f3ad46d8c838b0f705387501d0ccbe8050b584a56d700ca197bab6a0c72a71a7"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_darwin_arm64.tar.gz"
+checksum = "sha256:b44e68c48c31f6e3217fa007c9c9227680e320aaac18f6dad391d909435b4a0c"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_darwin_arm64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
 [tools."packslip:nnutter/timber"."platforms.macos-x64"]
-checksum = "sha256:7b76b094bbb0bd4d6e6d3e0c382d94c1d8cd258220c68de1c83b1cf043a4f83b"
-url = "https://github.com/nnutter/timber/releases/download/v0.26.3/timber_v0.26.3_darwin_amd64.tar.gz"
+checksum = "sha256:ae4481d9dbc3b3c3d2c9ff4c9719ea9320e5c95b910693a0846f5738c9b1667c"
+url = "https://github.com/nnutter/timber/releases/download/v0.28.1/timber_v0.28.1_darwin_amd64.tar.gz"
 signer = "sigstore-oidc:https://github.com/nnutter/timber/.github/workflows/release.yaml"
 repository_ids = { repository = "1218412975" }
 
@@ -451,6 +451,100 @@ checksum = "sha256:b1da686befc4ce4d92fe81bd2892e7457a505328313380010c4791c7f68d7
 checksum_source = "mise-versions"
 url = "https://github.com/apple/pkl/releases/download/0.33.1/pkl-windows-amd64.exe"
 url_api = "https://api.github.com/repos/apple/pkl/releases/assets/764390372"
+
+[[tools.shellcheck]]
+version = "0.11.0"
+backend = "aqua:koalaman/shellcheck"
+specifiers = ["latest"]
+
+[tools.shellcheck."platforms.linux-arm64"]
+checksum = "sha256:12b331c1d2db6b9eb13cfca64306b1b157a86eb69db83023e261eaa7e7c14588"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.aarch64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056934"
+
+[tools.shellcheck."platforms.linux-arm64-musl"]
+checksum = "sha256:12b331c1d2db6b9eb13cfca64306b1b157a86eb69db83023e261eaa7e7c14588"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.aarch64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056934"
+
+[tools.shellcheck."platforms.linux-x64"]
+checksum = "sha256:8c3be12b05d5c177a04c29e3c78ce89ac86f1595681cab149b65b97c4e227198"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.x86_64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056942"
+
+[tools.shellcheck."platforms.linux-x64-musl"]
+checksum = "sha256:8c3be12b05d5c177a04c29e3c78ce89ac86f1595681cab149b65b97c4e227198"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.x86_64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056942"
+
+[tools.shellcheck."platforms.macos-arm64"]
+checksum = "sha256:56affdd8de5527894dca6dc3d7e0a99a873b0f004d7aabc30ae407d3f48b0a79"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.darwin.aarch64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056932"
+
+[tools.shellcheck."platforms.macos-x64"]
+checksum = "sha256:3c89db4edcab7cf1c27bff178882e0f6f27f7afdf54e859fa041fca10febe4c6"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.darwin.x86_64.tar.xz"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056930"
+
+[tools.shellcheck."platforms.windows-x64"]
+checksum = "sha256:8a4e35ab0b331c85d73567b12f2a444df187f483e5079ceffa6bda1faa2e740e"
+checksum_source = "mise-versions"
+url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.zip"
+url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056944"
+
+[[tools.shfmt]]
+version = "3.14.1"
+backend = "aqua:mvdan/sh"
+specifiers = ["latest"]
+
+[tools.shfmt."platforms.linux-arm64"]
+checksum = "sha256:5f2db09dae91fca848f7adbdd014632e921a383863a2ad7e0450ad3aba0c6489"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_arm64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320869"
+
+[tools.shfmt."platforms.linux-arm64-musl"]
+checksum = "sha256:5f2db09dae91fca848f7adbdd014632e921a383863a2ad7e0450ad3aba0c6489"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_arm64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320869"
+
+[tools.shfmt."platforms.linux-x64"]
+checksum = "sha256:76e77641faa025814b77f153b29796b8e6fa2fca03e0c76a691608b86c7ea7bf"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_amd64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320883"
+
+[tools.shfmt."platforms.linux-x64-musl"]
+checksum = "sha256:76e77641faa025814b77f153b29796b8e6fa2fca03e0c76a691608b86c7ea7bf"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_amd64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320883"
+
+[tools.shfmt."platforms.macos-arm64"]
+checksum = "sha256:b7c872db63553ccffc7253aba3ed7d4885a27d83f1ba567b1138c6315a5847e5"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_darwin_arm64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320930"
+
+[tools.shfmt."platforms.macos-x64"]
+checksum = "sha256:d33eee0da0f92835b3562e9767a05cee7e4eaeef47daa03bfd09da17b4b590a6"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_darwin_amd64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320946"
+
+[tools.shfmt."platforms.windows-x64"]
+checksum = "sha256:13629ce28442ca80b6b5a819f7574ab39e1c28c6e26734ca816c9714e04851df"
+checksum_source = "mise-versions"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_windows_amd64.exe"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320827"
 
 [[tools.staticcheck]]
 version = "2026.2.2"
