@@ -14,4 +14,4 @@ import
 // run in the order their edits must land, and every step that only reads waits
 // for the last fixer, so the readers run together. `check` sets no order.
 // `go`, `toml`, and `yaml` are the groups a Go repository needs.
-hooks = Hooks.all(List("go", "toml", "yaml"))
+hooks = Hooks.all(List("go", "toml", "yaml", "shell"))

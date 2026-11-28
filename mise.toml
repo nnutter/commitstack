@@ -9,6 +9,8 @@ gofumpt = "latest"
 pkl = "latest"
 staticcheck = "latest"
 tombi = "latest"
+shellcheck = "latest"
+shfmt = "latest"
 yamlfmt = "latest"
 "packslip:nnutter/constable" = { version = "latest", minimum_release_age = "0" }
 "packslip:nnutter/mdlint" = { version = "latest", minimum_release_age = "0" }
